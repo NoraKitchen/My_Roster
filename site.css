@@ -1,5 +1,20 @@
 .player-card {
-    display: inline-block;
+    display: inline-block !important;
     border: 1px solid black;
     text-align: center;
+    position: relative;
+}
+
+.player-image {
+    width: 200px;
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.hidden {
+    visibility: hidden;
 }
