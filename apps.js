@@ -1,10 +1,12 @@
+//make draw players extensible, make more buttons
+
 var playerRoster = []
 
-function Player (name, position, num, image) {
-  this.name = name;
+function Player (fullname, position, jersey, photo) {
+  this.fullname = fullname;
   this.position = position;
-  this.num = num;
-  this.image = image;
+  this.jersey = jersey;
+  this.photo = photo;
 }
 
 function addPlayer (player) {
@@ -17,24 +19,16 @@ function drawPlayers() {
     rosterElem.empty();
     for (var i = 0; i < playerRoster.length; i++) {
         var currentPlayer = playerRoster[i];
-        rosterElem.append('<div class="panel panel-default player-card"><button class="btn btn-danger delete-button hidden"><i class="fa fa-trash" aria-hidden="true"></i></button><img class="player-image" src="' + currentPlayer.image + '"><p>' + currentPlayer.name + '</p><p>' + currentPlayer.position + '</p><p class="player-number">' + currentPlayer.num + '</p></div>');
+        rosterElem.append('<div class="panel panel-default player-card"><button class="btn btn-danger hover-button hidden"><i class="fa fa-trash" aria-hidden="true"></i></button><img class="player-image" src="' + currentPlayer.photo + '"><p class="full-name">' + currentPlayer.fullname + '</p><p>' + currentPlayer.position + '</p><p>' + currentPlayer.jersey + '</p></div>');
     }
 }
 
 
-/*originally had 
-$("delete-button").on("click", ".player-card", function() {
-    $(this).remove();
-})
-
-also why only 'textContent'
-*/
-
 function removePlayer () {
-    var playerNumber = $(this).siblings(".player-number")[0].textContent;
+    var playerName = $(this).siblings(".full-name")[0].textContent;
     for (var i = 0; i < playerRoster.length; i++) {
         var currentPlayer = playerRoster[i];
-        if (currentPlayer.num === playerNumber) {
+        if (currentPlayer.fullname === playerName) {
             playerRoster.splice(i, 1)
         }
     }
@@ -43,7 +37,7 @@ function removePlayer () {
 
 
 
-$("form").on("submit", function(event){
+$(".player-entry-form").on("submit", function(event){
 	event.preventDefault();
     var form = this;
     var currentPlayer = new Player(form.name.value, form.position.value, form.num.value, form.image.value);
@@ -51,13 +45,13 @@ $("form").on("submit", function(event){
     $(this).trigger("reset");
 });
 
-$(".player-roster").on("click", ".delete-button", removePlayer)
+$(".player-roster").on("click", ".hover-button", removePlayer)
 
-$(".player-roster").on({
+$(".player-roster, .selection-display").on({
     mouseenter: function(){
-        $(this).find(".delete-button").toggleClass("hidden");
+        $(this).find(".hover-button").toggleClass("hidden");
     },
     mouseleave: function(){
-        $(this).find(".delete-button").toggleClass("hidden");
+        $(this).find(".hover-button").toggleClass("hidden");
     }
 }, ".player-card")

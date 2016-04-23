@@ -1,58 +1,80 @@
 <html>
-    <head>
-        <title>NFL Roster</title>
-        <link rel="stylesheet" href="site.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">   
-    </head>
-    
-    <body>
-        
-        <div class="container">
- 
-            
-            <section class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">My NFL Roster</div>
-                        <div class="panel-body">
-                            <div class="player-roster">
-                            </div>
-                            <div class="player-form">
-                                <form class="form">
-                                    <div class="form-group">
-                                        <label for="name">Player Name</label>
-                                        <input name="name" class="form-control">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="position">Position</label>
-                                        <input name="position" class="form-control">
-                                    </div>   
-                                    <div class="form-group"> 
-                                        <label for="number">Number</label>
-                                        <input name="num" class="form-control">
-                                    </div>
-                                        <div class="form-group"> 
-                                        <label for="">Image URL</label>
-                                        <input name="image" class="form-control">
-                                    </div>
-                                    <div>
-                                        <button type="submit" class="btn btn-success add-player-btn">Add Player</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div> <!--end panel body-->
-                    </div> <!--end panel-->
+
+<head>
+    <title>NFL Roster</title>
+    <link rel="stylesheet" href="site.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+    crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <section class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">My NFL Roster</div>
+                    <div class="panel-body">
+                        <div class="player-roster">
+                        </div>
+                        <div class="player-form">
+                            <form class="form player-entry-form">
+                                <div class="form-group">
+                                    <label for="name">Player Name</label>
+                                    <input name="name" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">Position</label>
+                                    <input name="position" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="number">Number</label>
+                                    <input name="num" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Image URL</label>
+                                    <input name="image" class="form-control">
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-success add-player-btn">Add Player</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--end panel body-->
                 </div>
-            </section>
-            
-        
-        
-        
-        </div> <!--end container-->
-        
+                <!--end panel-->
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-md-12">
+                <h3>Selected Characters Display</h3>
+
+                <div>
+                    <form class="form form-inline find-player-form">
+                        <div class="form-group">
+                            <input name="teamName" class="form-control" placeholder="Enter Team Name">
+                            <button type="submit" class="btn btn-success">Filter By Team</button>
+                        </div>
+
+                        <div class="selection-display">
+                        </div>
+                </div>
+        </section>
+
+
+
+
+        </div>
+        <!--end container-->
+
+        <script src="players-service.js"></script>
+        <script src="roster-controller.js"></script>
         <script src="apps.js"></script>
-    </body>
-    
+</body>
+
 </html>
