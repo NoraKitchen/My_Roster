@@ -11,81 +11,133 @@
 
 <body>
 
-    <div class="container">
+    <div class="container-fluid">
+
+        <div class="row">
+            <!--entire outer row-->
+            <div class="col-md-3">
 
 
-        <section class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">My NFL Roster</div>
-                    <div class="panel-body">
-                        <div class="player-roster">
+                <!--left bar-->
+                <h3>Get Players</h3>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Browse NFL Players</a>
+                                </h4>
                         </div>
-                        <div class="player-form">
-                            <form class="form player-entry-form">
-                                <div class="form-group">
-                                    <label for="name">Player Name</label>
-                                    <input name="name" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="position">Position</label>
-                                    <select name="position" class="form-control">
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="number">Number</label>
-                                    <input name="num" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Image URL</label>
-                                    <input name="image" class="form-control">
-                                </div>
-                                <div>
-                                    <button type="submit" class="btn btn-success add-player-btn">Add Player</button>
-                                </div>
-                            </form>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <form class="form form-inline find-player-by-team-form">
+                                    <div class="form-group">
+                                        <input name="teamName" class="form-control" placeholder="Enter Team Name">
+                                        <button type="submit" class="btn btn-success disabled">Filter By Team Name or City</button>
+                                    </div>
+                                </form>
+                                <form class="form form-inline find-player-by-position-form">
+                                    <div class="form-group">
+                                        <label for="position">Select Position</label>
+                                        <select name="position" class="form-control">
+                                        </select>
+                                        <button type="submit" class="btn btn-success disabled">Filter By Position</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                    <!--end panel body-->
-                </div>
-                <!--end panel-->
-            </div>
-        </section>
-        <section class="row">
-            <div class="col-md-12">
-                <h3>Selected Characters Display</h3>
-
-                <div>
-                    <form class="form form-inline find-player-by-team-form">
-                        <div class="form-group">
-                            <input name="teamName" class="form-control" placeholder="Enter Team Name">
-                            <button type="submit" class="btn btn-success disabled">Filter By Team Name or City</button>
+                    <!--first accordion close-->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Create Own Player</a>
+                                </h4>
                         </div>
-                    </form>
-                    <form class="form form-inline find-player-by-position-form">
-                        <div class="form-group">
-                            <label for="position">Select Position</label>
-                            <select name="position" class="form-control">
-                            </select>
-                            <button type="submit" class="btn btn-success disabled">Filter By Position</button>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <div class="player-form">
+                                    <form class="form player-entry-form">
+                                        <div class="form-group">
+                                            <label for="name">Player Name</label>
+                                            <input name="name" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="position">Position</label>
+                                            <select name="position" class="form-control">
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="number">Number</label>
+                                            <input name="num" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Image URL</label>
+                                            <input name="image" class="form-control">
+                                        </div>
+                                        <div>
+                                            <button type="submit" class="btn btn-success add-player-btn">Add Player</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+                    </div>
                 </div>
-                </form>
-
-                <div class="selection-display">
-                </div>
+                <!--panel group close?-->
             </div>
-        </section>
+            <!--left sidebar close-->
+
+            <div class="col-md-9">
+                <section class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="#myteam">My Team</a></li>
+                            <li><a data-toggle="tab" href="#search">Search Results</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="myteam" class="tab-pane fade in active">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">My NFL Roster</div>
+                                    <div class="panel-body">
+                                        <div class="player-roster">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="search" class="tab-pane fade">
+                                <div class="panel panel-default">
+                                    <h3>Selected Characters Display</h3>
+                                    <div class="selection-display">
+                                    </div>
+                                </div>
+                            </div>
 
 
 
+                        </div>
+                </section>
 
-    </div>
-    <!--end container-->
 
-    <script src="players-service.js"></script>
-    <script src="roster-controller.js"></script>
-    <script src="apps.js"></script>
+                <section class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                </section>
+                </div>
+                <!--right section-->
+            </div>
+            <!--outer row-->
+
+
+        </div>
+        <!--end container-->
+
+        <script src="players-service.js"></script>
+        <script src="roster-controller.js"></script>
+        <script src="apps.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
