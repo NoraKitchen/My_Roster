@@ -18,3 +18,9 @@
 .hidden {
     visibility: hidden;
 }
+
+.jersey-no {
+    font-style: italic;
+    color: lightslategray;
+    font-size: small;
+}
