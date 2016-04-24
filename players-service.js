@@ -5,25 +5,16 @@ var PlayersService = function(endpointUri, callback) {
         console.log(playersData[0])
     }
     
-    //you should use filter rather than this though
-    this.getPlayersBySomeValue = function(value){
-        var selection = [];
-        console.log("start")
-        for (var i = 0; i < playersData.length; i++){
-            var currentPlayer = playersData[i];
-            var hasValue = false;
-            console.log("looping players")
-            for(var prop in currentPlayer){
-                if(typeof currentPlayer[prop] === 'string' && currentPlayer[prop].toLowerCase() === value){
-                    hasValue = true;
-                }
+    
+        this.getPlayersBySomeValue = function(prop, enteredValue) {
+        var playerSelection = playersData.filter(function(player) {
+            if (player[prop] && player[prop].toString().toUpperCase() === enteredValue.toUpperCase()) {
+                return true;
             }
-            if(hasValue){
-                selection.push(currentPlayer)
-            }
-        }
-        return selection;
+        })
+        return playerSelection;
     }
+    
 
     this.getPlayersByTeam = function(teamName) {
         var playerSelection = playersData.filter(function(player) {
@@ -37,14 +28,6 @@ var PlayersService = function(endpointUri, callback) {
     }
     
 
-    this.getPlayersByPosition = function(position) {
-        var playerSelection = playersData.filter(function(player) {
-            if (player.position === position) {
-                return true;
-            }
-        })
-        return playerSelection;
-    }
 
     function loadPlayersData() {
         //Check the localstorage for the data before making the call.

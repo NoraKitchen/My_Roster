@@ -31,8 +31,6 @@
                                     <label for="position">Position</label>
                                     <select name="position" class="form-control">
                                     </select>
-                                   <!-- <label for="position">Position</label>
-                                    <input name="position" class="form-control"> -->
                                 </div>
                                 <div class="form-group">
                                     <label for="number">Number</label>
@@ -58,26 +56,36 @@
                 <h3>Selected Characters Display</h3>
 
                 <div>
-                    <form class="form form-inline find-player-form">
+                    <form class="form form-inline find-player-by-team-form">
                         <div class="form-group">
                             <input name="teamName" class="form-control" placeholder="Enter Team Name">
-                            <button type="submit" class="btn btn-success">Filter By Team</button>
+                            <button type="submit" class="btn btn-success disabled">Filter By Team Name or City</button>
                         </div>
-
-                        <div class="selection-display">
+                    </form>
+                    <form class="form form-inline find-player-by-position-form">
+                        <div class="form-group">
+                            <label for="position">Select Position</label>
+                            <select name="position" class="form-control">
+                            </select>
+                            <button type="submit" class="btn btn-success disabled">Filter By Position</button>
                         </div>
                 </div>
+                </form>
+
+                <div class="selection-display">
+                </div>
+            </div>
         </section>
 
 
 
 
-        </div>
-        <!--end container-->
+    </div>
+    <!--end container-->
 
-        <script src="players-service.js"></script>
-        <script src="roster-controller.js"></script>
-        <script src="apps.js"></script>
+    <script src="players-service.js"></script>
+    <script src="roster-controller.js"></script>
+    <script src="apps.js"></script>
 </body>
 
 </html>
