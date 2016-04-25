@@ -1,5 +1,6 @@
 body {
-    background-image: url("footballfield3.jpg"), linear-gradient(black, white);
+    background-image: url("footballfield4.jpg"); /* , linear-gradient(black, white); */
+    background-color: black !important;
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.95;
@@ -12,12 +13,19 @@ hr {
     box-shadow: 0 0 10px 1px black;
 }
 
-.text-on-background {
-    color: darkgray
+#search-results-info {
+    color: lightslategray;
+    font-style: italic;
+    padding-left: 15px;
+}
+
+.top-pad {
+    padding-top: 15px;
 }
 
 .search-button {
     background-color: #afcc58;
+    color: white;
 }
 
 .player-card {
@@ -35,6 +43,7 @@ hr {
 
 .left-search-bar {
     box-shadow: 0 0 10px 1px black;
+    padding-top: 25px;
 }
 
 .player-roster, .selection-display {
@@ -62,12 +71,6 @@ hr {
     font-style: italic;
     color: lightslategray;
     font-size: small;
-}
-
-#search-results-info {
-    color: lightslategray;
-    font-style: italic;
-    padding-left: 15px;
 }
 
 .loading-message {

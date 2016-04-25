@@ -37,7 +37,7 @@ var positionAbbr = {
 }
 
 //this was taken from https://gist.github.com/smykes/368afa60c1a75b3d5468
-//i could not figure out how to make using the files separately work
+//i could not figure out how to make using the files separately work, hopefully we will learn that later?
 //also is there a particular crediting process/ettiquite?
 var nflTeams = [
     {
@@ -281,6 +281,35 @@ function ready() {
     $("button").removeClass("disabled");
     $(".loading-message").fadeTo("slow", 0.0)
 
+    function makeSearchTabActive() {
+        //why aren't my aria-expanded changes working? i ventured think they are what controls which tab is highlighted/in the forefront, yes?
+        $("#my-team").removeClass("in active");
+        $("#my-team-button").removeClass("active")
+        $("#my-team-link").attr("aria-expanded", "false");
+        $("#search").addClass("in active");
+        $("#search-button").addClass("active");
+        $("#search-link").attr("aria-expanded", "true");
+    }
+
+
+    function drawSelection() {
+        var selectionDisplay = $(".selection-display");
+        selectionDisplay.empty();
+        for (var i = 0; i < currentFilter.length; i++) {
+            var currentPlayer = currentFilter[i];
+
+            if (currentPlayer.jersey) {
+                var jerseyNumber = currentPlayer.jersey;
+            }
+            else {
+                jerseyNumber = "<span class='jersey-no'>Jersey Not Available</span>";
+            }
+
+            selectionDisplay.append('<div class="panel panel-default player-card"><button class="btn btn-success hover-button hidden"><i class="fa fa-plus" aria-hidden="true"></i></button><img class="player-image" src="' + currentPlayer.photo + '"><p class="full-name">' + currentPlayer.fullname + '</p><p>' + positionAbbr[currentPlayer.position] + '</p><p>' + jerseyNumber + '</p></div>');
+        }
+        makeSearchTabActive()
+    }
+
 
     $(".show-all-form").on("submit", function(event) {
         event.preventDefault();
@@ -324,35 +353,6 @@ function ready() {
         $(form).trigger("reset");
         drawSelection();
     });
-
-    function makeSearchTabActive() {
-        //why aren't my aria-expanded changes working?
-        $("#my-team").removeClass("in active");
-        $("#my-team-button").removeClass("active")
-        $("#my-team-link").attr("aria-expanded", "false");
-        $("#search").addClass("in active");
-        $("#search-button").addClass("active");
-        $("#search-link").attr("aria-expanded", "true");
-    }
-
-
-    function drawSelection() {
-        var selectionDisplay = $(".selection-display");
-        selectionDisplay.empty();
-        for (var i = 0; i < currentFilter.length; i++) {
-            var currentPlayer = currentFilter[i];
-
-            if (currentPlayer.jersey) {
-                var jerseyNumber = currentPlayer.jersey;
-            }
-            else {
-                jerseyNumber = "<span class='jersey-no'>Jersey Not Available</span>";
-            }
-
-            selectionDisplay.append('<div class="panel panel-default player-card"><button class="btn btn-success hover-button hidden"><i class="fa fa-plus" aria-hidden="true"></i></button><img class="player-image" src="' + currentPlayer.photo + '"><p class="full-name">' + currentPlayer.fullname + '</p><p>' + positionAbbr[currentPlayer.position] + '</p><p>' + jerseyNumber + '</p></div>');
-        }
-        makeSearchTabActive()
-    }
 
     $(".selection-display").on("click", ".hover-button", function(event) {
         event.preventDefault();

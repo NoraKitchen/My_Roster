@@ -14,20 +14,6 @@ var PlayersService = function(endpointUri, callback) {
         return playerSelection;
     }
     
-
-    this.getPlayersByTeam = function(teamName) {
-        var playerSelection = playersData.filter(function(player) {
-            if (player.pro_team === teamName) {
-                return true;
-                //.filter takes an array and filters it by a function--
-                //it creates a new array for any of the items int he array for which the function returns true
-            }
-        })
-        return playerSelection;
-    }
-    
-
-
     function loadPlayersData() {
         //Check the localstorage for the data before making the call.
         //Ideally if a user has already used your site 
@@ -54,18 +40,7 @@ var PlayersService = function(endpointUri, callback) {
             callback();
         })
         
-        
-        
-        // $.getJSON(apiUrl, function(data) { //the example had endpointUri here but i changed cause it did no work, day activity was more like this
-        //         playersData = data.body.players;
-        //         console.log('Player Data Ready')
-        //         console.log('Writing Player Data to localStorage')
-        //         localStorage.setItem('playerData', JSON.stringify(playerData)) //had a prob here, playerData not defined
-        //         console.log('Finished Writing Player Data to localStorage')
-        //         callback()
-        //})
-        
     }
-    loadPlayersData(); //calls above function ever time you create new service
+    loadPlayersData();
 }
 
