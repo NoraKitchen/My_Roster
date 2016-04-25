@@ -16,7 +16,7 @@
         <div class="row">
             <!--entire outer row-->
             <div class="background">
-            <div class="col-md-3">
+            <div class="col-md-3 left-search-bar">
                 <!--left bar-->
                 <h3 class="text-on-background">Get Players</h3>
                 <div class="panel-group" id="accordion">
@@ -31,8 +31,9 @@
                                 <p class="loading-message">...loading NFL player data...</p>
                                   <form class="form form-inline show-all-form">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-success disabled">Show All</button>
+                                        <button type="submit" class="btn search-button disabled">Show All NFL Players</button>
                                     </div>
+                                    <hr>
                                 </form>
                                 <form class="form form-inline find-player-by-team-form">
                                     <div class="form-group">
@@ -40,6 +41,7 @@
                                         <button type="submit" class="btn btn-success disabled">Filter By Team Name or City</button>
                                     </div>
                                 </form>
+                                <hr>
                                 <form class="form form-inline find-player-by-position-form">
                                     <div class="form-group">
                                         <select name="position" class="form-control">

@@ -2,12 +2,22 @@ body {
     background-image: url("footballfield3.jpg"), linear-gradient(black, white);
     background-repeat: no-repeat;
     background-size: 100%;
-    opacity: 0.9;
+    opacity: 0.95;
     /*Image source https://www.flickr.com/photos/chrispusateri/12219528855/ */
+}
+
+hr {
+    border: 0;
+    height: 0; /* Firefox... */
+    box-shadow: 0 0 10px 1px black;
 }
 
 .text-on-background {
     color: darkgray
+}
+
+.search-button {
+    background-color: #afcc58;
 }
 
 .player-card {
@@ -19,6 +29,12 @@ body {
     background-color: darkgray;
     font-size: 16px;
     border-radius: 10%;
+    background-color: #d3d3d3 !important;
+    margin: 2px;
+}
+
+.left-search-bar {
+    box-shadow: 0 0 10px 1px black;
 }
 
 .player-roster, .selection-display {
