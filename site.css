@@ -1,12 +1,35 @@
+body {
+    background-image: url("footballfield3.jpg"), linear-gradient(black, white);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0.9;
+    /*Image source https://www.flickr.com/photos/chrispusateri/12219528855/ */
+}
+
+.text-on-background {
+    color: darkgray
+}
+
 .player-card {
     display: inline-block !important;
     border: 1px solid black;
     text-align: center;
     position: relative;
+    opacity: 2;
+    background-color: darkgray;
+    font-size: 16px;
+    border-radius: 10%;
+}
+
+.player-roster, .selection-display {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .player-image {
     width: 200px;
+    padding: 10px;
 }
 
 .hover-button {
@@ -23,4 +46,15 @@
     font-style: italic;
     color: lightslategray;
     font-size: small;
+}
+
+#search-results-info {
+    color: lightslategray;
+    font-style: italic;
+    padding-left: 15px;
+}
+
+.loading-message {
+    font-size: 10px;
+    color: lightslategray;
 }

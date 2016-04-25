@@ -15,11 +15,10 @@
 
         <div class="row">
             <!--entire outer row-->
+            <div class="background">
             <div class="col-md-3">
-
-
                 <!--left bar-->
-                <h3>Get Players</h3>
+                <h3 class="text-on-background">Get Players</h3>
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -29,6 +28,12 @@
                         </div>
                         <div id="collapse1" class="panel-collapse collapse in">
                             <div class="panel-body">
+                                <p class="loading-message">...loading NFL player data...</p>
+                                  <form class="form form-inline show-all-form">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-success disabled">Show All</button>
+                                    </div>
+                                </form>
                                 <form class="form form-inline find-player-by-team-form">
                                     <div class="form-group">
                                         <input name="teamName" class="form-control" placeholder="Enter Team Name">
@@ -37,7 +42,6 @@
                                 </form>
                                 <form class="form form-inline find-player-by-position-form">
                                     <div class="form-group">
-                                        <label for="position">Select Position</label>
                                         <select name="position" class="form-control">
                                         </select>
                                         <button type="submit" class="btn btn-success disabled">Filter By Position</button>
@@ -91,44 +95,33 @@
                 <section class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#myteam">My Team</a></li>
-                            <li><a data-toggle="tab" href="#search">Search Results</a></li>
+                            <li class="active" id="my-team-button"><a id="#my-team-link" data-toggle="tab" href="#my-team" aria-expanded="true">My Team</a></li>
+                            <li id="#search-button"><a id="#search-link" data-toggle="tab" href="#search" aria-expanded="false">Search Results</a></li>
                         </ul>
-                        <div class="tab-content">
-                            <div id="myteam" class="tab-pane fade in active">
+                        <div class="tab-content" id="main-tabs">
+                            <div id="my-team" class="tab-pane fade in active">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">My NFL Roster</div>
                                     <div class="panel-body">
                                         <div class="player-roster">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div id="search" class="tab-pane fade">
                                 <div class="panel panel-default">
-                                    <h3>Selected Characters Display</h3>
+                                    <h4 id="search-results-info">No Search Results to Display</h3>
                                     <div class="selection-display">
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </div>
                 </section>
 
-
-                <section class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                </section>
                 </div>
                 <!--right section-->
             </div>
             <!--outer row-->
-
 
         </div>
         <!--end container-->

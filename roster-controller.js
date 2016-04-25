@@ -279,6 +279,15 @@ drawPositionOptions();
 function ready() {
     loading = false; //stop the spinner
     $("button").removeClass("disabled");
+    $(".loading-message").fadeTo("slow", 0.0)
+
+
+    $(".show-all-form").on("submit", function(event) {
+        event.preventDefault();
+        currentFilter = playerService.getAllPlayers();
+        $("#search-results-info").text("Displaying all " + currentFilter.length + " NFL players");
+        drawSelection();
+    });
 
 
     $(".find-player-by-team-form").on("submit", function(event) {
@@ -289,11 +298,12 @@ function ready() {
         for (var i = 0; i < nflTeams.length; i++) {
             var currentTeam = nflTeams[i];
             if (currentTeam.name.toUpperCase() === teamSelected.toUpperCase() || currentTeam.city.toUpperCase() === teamSelected.toUpperCase()) {
-                teamSelected = currentTeam.abr;
+                var teamSelectedAbr = currentTeam.abr;
             }
         }
 
-        currentFilter = playerService.getPlayersBySomeValue("pro_team", teamSelected);
+        currentFilter = playerService.getPlayersBySomeValue("pro_team", teamSelectedAbr);
+        $("#search-results-info").text("Displaying " + currentFilter.length + " search results for Team Name/City: " + teamSelected);
         $(form).trigger("reset");
         drawSelection();
     });
@@ -302,17 +312,28 @@ function ready() {
         event.preventDefault();
         var form = this;
         var positionSelected = form.position.value;
-        
-        for (var key in positionAbbr){
-            if (positionAbbr[key] === positionSelected){
-                positionSelected = key;
+
+        for (var key in positionAbbr) {
+            if (positionAbbr[key] === positionSelected) {
+                var positionSelectedKey = key;
             }
         }
 
-        currentFilter = playerService.getPlayersBySomeValue("position", positionSelected);
+        currentFilter = playerService.getPlayersBySomeValue("position", positionSelectedKey);
+        $("#search-results-info").text("Displaying " + currentFilter.length + " search results for Position: " + positionSelected);
         $(form).trigger("reset");
         drawSelection();
     });
+
+    function makeSearchTabActive() {
+        //why aren't my aria-expanded changes working?
+        $("#my-team").removeClass("in active");
+        $("#my-team-button").removeClass("active")
+        $("#my-team-link").attr("aria-expanded", "false");
+        $("#search").addClass("in active");
+        $("#search-button").addClass("active");
+        $("#search-link").attr("aria-expanded", "true");
+    }
 
 
     function drawSelection() {
@@ -330,6 +351,7 @@ function ready() {
 
             selectionDisplay.append('<div class="panel panel-default player-card"><button class="btn btn-success hover-button hidden"><i class="fa fa-plus" aria-hidden="true"></i></button><img class="player-image" src="' + currentPlayer.photo + '"><p class="full-name">' + currentPlayer.fullname + '</p><p>' + positionAbbr[currentPlayer.position] + '</p><p>' + jerseyNumber + '</p></div>');
         }
+        makeSearchTabActive()
     }
 
     $(".selection-display").on("click", ".hover-button", function(event) {

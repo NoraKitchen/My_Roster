@@ -1,10 +1,9 @@
 var PlayersService = function(endpointUri, callback) {
     var playersData = [];
     
-    this.printData = function(){  //works
-        console.log(playersData[0])
-    }
-    
+        this.getAllPlayers = function() {
+            return playersData;
+        }
     
         this.getPlayersBySomeValue = function(prop, enteredValue) {
         var playerSelection = playersData.filter(function(player) {
