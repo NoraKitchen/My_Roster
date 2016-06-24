@@ -4,6 +4,7 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     opacity: 0.95;
+    background-attachment: fixed;
     /*Image source https://www.flickr.com/photos/chrispusateri/12219528855/ */
 }
 
@@ -76,4 +77,8 @@ hr {
 .loading-message {
     font-size: 10px;
     color: lightslategray;
+}
+
+.info-button {
+  padding-left: 20px;
 }
